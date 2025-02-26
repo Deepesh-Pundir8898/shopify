@@ -1,0 +1,28 @@
+.nav{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: black;
+    gap: 3rem;
+    font-weight: 600;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+.btn{
+    background-color: #d431b3;
+    border: 2px solid #d431b3;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn:hover{
+    border: 2px solid  #d431b3;
+    background-color: transparent;
+}

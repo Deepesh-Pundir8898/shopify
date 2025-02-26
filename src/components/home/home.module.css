@@ -1,0 +1,23 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 91vh;
+    gap: 3rem;
+        color: white;
+background: linear-gradient(to left,#050412, rgb(61, 17, 23), #050412);
+    p{
+        font-size: 1.1rem;
+        width: 80%;
+        line-height: 2rem;
+    }
+}
+.btn{
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    background-color: transparent;
+    font-size: 1.2rem;
+    border: 2px solid #1f2573;
+    color: #1f2573;
+}
