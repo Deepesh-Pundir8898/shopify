@@ -16,4 +16,4 @@ This is a simple e-commerce application built using React and Redux. The applica
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/e-commerce-app.git
+   git clone https://github.com/yourusername/shopify.git
