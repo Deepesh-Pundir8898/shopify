@@ -6,6 +6,7 @@ const Nav = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    localStorage.removeItem("currentUser");
     navigate("/");
   };
 

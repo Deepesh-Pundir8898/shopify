@@ -1,0 +1,53 @@
+.usersContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 90%;
+    margin: 2rem auto;
+}
+.filterButtons{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    thead th{
+        background-color: #212529;
+        color: white;
+        padding: 15px;
+    }
+    tbody td{
+        padding: 10px;
+        border: 1px solid #dee2e6;
+        button{
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #950665;
+            color: white;
+            cursor: pointer;
+        }
+
+    }
+    tbody img{
+        width: 60px;
+        height: 60px;
+    }
+}
+.filterButtons{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    button{
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #950665;
+        color: white;
+        cursor: pointer;
+    }
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import style from "./ProductDetails.module.css";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -9,13 +10,27 @@ const ProductDetails = () => {
   );
 
   return (
-    <div>
-      <h1>Product Details</h1>
-      <p>Title: {product?.title}</p>
-      <p>Price: {product?.price}</p>
-      <p>Description: {product?.description}</p>
-      <p>Category: {product?.category}</p>
-      <img src={product?.image} alt={product?.title} />
+    <div className={style.productDetailsContainer}>
+      <h1>{product?.category}</h1>
+      <div className={style.productDetails}>
+        <div className={style.imageContainer}>
+          <img src={product?.image} alt={product?.title} />
+        </div>
+        <div className={style.detailsContainer}>
+          <p>
+            <strong>Title:</strong> {product?.title}
+          </p>
+          <p>
+            <strong>Price:</strong> $ {product?.price}
+          </p>
+          <p>
+            <strong>Description:</strong> {product?.description}
+          </p>
+          <p>
+            <strong>Category:</strong> {product?.category}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

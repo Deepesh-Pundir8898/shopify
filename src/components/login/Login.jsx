@@ -5,13 +5,28 @@ import styles from "./login.module.css";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [isSignUp, setIsSignUp] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (username === "admin" && password === "admin") {
+    const userDetails = JSON.parse(localStorage.getItem(username));
+    if (userDetails.email === email && userDetails.password === password) {
+      localStorage.setItem("currentUser", username);
       navigate("/home");
     } else {
-      alert("Invalid credentials");
+      alert("Invalid username or password");
+    }
+  };
+
+  const handleSignUp = () => {
+    if (username && password && email) {
+      const userDetails = { username, password, email };
+      localStorage.setItem(username, JSON.stringify(userDetails));
+      alert("Signup successful! Please login.");
+      setIsSignUp(false);
+    } else {
+      alert("Required fields are missing");
     }
   };
 
@@ -23,14 +38,28 @@ const Login = () => {
         </h1>
         <p>Its great to have you back!</p>
         <div className={styles.form}>
+          {isSignUp && (
+            <div className={styles.inputContainer}>
+              <label htmlFor="username">Username</label>
+              <input
+                id="username"
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </div>
+          )}
+
           <div className={styles.inputContainer}>
             <label htmlFor="email">Email</label>
             <input
               id="email"
               type="email"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -40,7 +69,7 @@ const Login = () => {
             <input
               id="password"
               type="password"
-              placeholder="password"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -48,11 +77,17 @@ const Login = () => {
           </div>
 
           <div className={styles.btns}>
-            <button className={styles.loginBtn} onClick={handleLogin}>
-              Login
+            <button
+              className={styles.loginBtn}
+              onClick={isSignUp ? handleSignUp : handleLogin}
+            >
+              {isSignUp ? "Sign Up" : "Login"}
             </button>
-            <button className={styles.registerBtn} onClick={handleLogin}>
-              Create Account
+            <button
+              className={styles.registerBtn}
+              onClick={() => setIsSignUp(!isSignUp)}
+            >
+              {isSignUp ? "Back to Login" : "Create Account"}
             </button>
           </div>
         </div>
